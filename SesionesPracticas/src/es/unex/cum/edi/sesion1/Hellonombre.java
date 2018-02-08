@@ -1,3 +1,4 @@
+package es.unex.cum.edi.sesion1;
 import java.io.*;
 
 public class Hellonombre { // Esta es la declaración de nuestra clase
