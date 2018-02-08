@@ -13,6 +13,7 @@ public class Tarea12 {
 		
 		System.out.println("Introduce un número: ");
 		num = in.nextInt();
+		in.close();
 		
 		while(num != -1) {
 			

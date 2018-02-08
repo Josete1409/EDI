@@ -13,6 +13,7 @@ public class Tarea11 {
 
 		System.out.println("Introduzca un número para calcular su factorial: ");
 		num = in.nextLong();
+		in.close();
 		
 		if(num == 0) {
 			
