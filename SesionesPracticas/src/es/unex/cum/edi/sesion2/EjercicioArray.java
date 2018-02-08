@@ -45,6 +45,7 @@ public class EjercicioArray {
 		for(int i=0; i<v.length; i++) {
 			
 			v[i] = in.nextInt();
+			in.close();
 			
 		}
 		
