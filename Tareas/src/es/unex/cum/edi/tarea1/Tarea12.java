@@ -1,4 +1,4 @@
-package tarea1;
+package es.unex.cum.edi.tarea1;
 
 import java.util.Scanner;
 
@@ -13,7 +13,6 @@ public class Tarea12 {
 		
 		System.out.println("Introduce un número: ");
 		num = in.nextInt();
-		in.close();
 		
 		while(num != -1) {
 			
@@ -24,6 +23,8 @@ public class Tarea12 {
 		}
 		
 		System.out.println("La suma de números es "+suma);
+	
+		in.close();
 		
 	}
 

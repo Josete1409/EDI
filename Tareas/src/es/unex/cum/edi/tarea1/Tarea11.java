@@ -1,4 +1,4 @@
-package tarea1;
+package es.unex.cum.edi.tarea1;
 
 import java.util.Scanner;
 
