@@ -14,13 +14,13 @@ public class RSociales {
 
 	}
 
-	public RSociales(String n, String f, int ini){ //Constructor Parametrizado
-		
-			nombre = n;
-			fundador = f;
-			inicio = ini;
-		
-		}
+	public RSociales(String n, String f, int ini) { // Constructor Parametrizado
+
+		nombre = n;
+		fundador = f;
+		inicio = ini;
+
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -47,7 +47,7 @@ public class RSociales {
 	}
 
 	public String toString() {
-		return "["+ nombre + "," + fundador + "," + inicio + "]";
+		return "[" + nombre + "," + fundador + "," + inicio + "]";
 	}
 
 	public boolean equals(RSociales rs) {

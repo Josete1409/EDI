@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"es.unex.cum.edi.sesion5","l":"Sustantivo"}]
