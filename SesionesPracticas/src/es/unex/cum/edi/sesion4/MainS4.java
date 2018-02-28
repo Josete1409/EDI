@@ -2,6 +2,8 @@ package es.unex.cum.edi.sesion4;
 
 import java.io.IOException;
 
+import es.unex.cum.edi.sesion5.Teclado;
+
 public class MainS4 {
 
 	private Ahorcado a;

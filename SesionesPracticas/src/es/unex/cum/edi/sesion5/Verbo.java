@@ -1,33 +1,32 @@
 package es.unex.cum.edi.sesion5;
 
 /**
- * Clase Sustantivo que hereda de la clase Palabra. Esta formado por el texto, la pista y el numero. 
+ * Clase Verbo que hereda de la clase Palabra. Esta formado por el texto, la pista y el numero. 
  * En primer lugar se debe llamar a un constructor y a continuacion llamar a los distintos métodos.
  * 
  * @author Jose Antonio Alvarez
  * @version 1
  * @see Class Palabra
- *
  */
-public class Sustantivo extends Palabra {
+public class Verbo extends Palabra {
 
 	private int numero;
 	
 	/**
-	 * Constructor por Defecto de la clase Sustantivo. Llama a la clase padre(Palabra).
+	 * Constructor por Defcto de la clase Verbo. Llama a la clase padre(Palabra).
 	 */
-	public Sustantivo() {
+	public Verbo() {
 		super();
 		numero = 0;
 	}
 	
 	/**
-	 * Constructor Parametrizado de la clase Sustantivo.
-	 * @param t El texto de la clase Palabra.
-	 * @param p La pista de la clase Palabra.
-	 * @param n El numero de la clase Sustantivo, 1 Singular, 2 Plural.
+	 * Constructor Parametrizado de la clase Verbo
+	 * @param t - El texto de la clase Palabra
+	 * @param p - La pista de la clase Palabra
+	 * @param n - El número de la clase Verbo, 1 Primera persona, 2 Segunda persona y 3 Tercera persona.
 	 */
-	public Sustantivo(String t, String p, int n) {
+	public Verbo(String t, String p, int n) {
 		super(t,p);
 		numero = n;
 	}
@@ -39,13 +38,13 @@ public class Sustantivo extends Palabra {
 	public int getNumero() {
 		return numero;
 	}
-
+	
 	/**
 	 * Metodo que modifica el valor del atributo numero.
 	 * @param numero Valor entero con el nuevo valor.
 	 */
 	public void setNumero(int numero) {
-		this.numero = numero;
+		this.numero=numero;
 	}
 	
 	/**
@@ -53,8 +52,8 @@ public class Sustantivo extends Palabra {
 	 *@return Booleano con la comparacion de todos los atributos.
 	 */
 	public boolean equals(Object o) {
-		Sustantivo s = (Sustantivo) o;
-		return (super.equals(s) && numero==s.numero);
+		Verbo v = (Verbo) o;
+		return (super.equals(v) && numero==v.numero);
 	}
 	
 	/**
@@ -62,7 +61,6 @@ public class Sustantivo extends Palabra {
 	 * @return Cadena con el formato de salida [] y el valor de todos los atributos.
 	 */
 	public String toString() {
-		return super.toString()+"Numero: "+numero+" ]";
+		return  super.toString()+"Numero: "+numero+" ]";
 	}
-	
 }
