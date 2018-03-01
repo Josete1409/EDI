@@ -61,6 +61,6 @@ public class Verbo extends Palabra {
 	 * @return Cadena con el formato de salida [] y el valor de todos los atributos.
 	 */
 	public String toString() {
-		return  super.toString()+"Numero: "+numero+" ]";
+		return  super.toString()+"Verbo [Numero: "+numero+"]";
 	}
 }

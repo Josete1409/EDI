@@ -63,63 +63,64 @@ public class Ahorcado {
 	
 	/**
 	 * Metodo que devuelve el atributo seleccionada.
-	 * @return 
+	 * @return Objeto de la clase Palabra con su valor.
 	 */
 	public Palabra getSeleccionada() {	
 		return seleccionada;	
 	}
 	
 	/**
-	 * 
-	 * @param s
+	 * Metodo que modifica el valor del atributo seleccionada.
+	 * @param s Obejeto de la clase Palabra con el nuevo valor.
 	 */
 	public void setSeleccionada(Palabra s) {
 		seleccionada = s;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Metodo que devuelve el atributo intentos.
+	 * @return Un entero con su valor
 	 */
 	public int getIntentos() {
 		return intentos;
 	}
 
 	/**
-	 * 
-	 * @param i
+	 * Metodo que modifica el valor del atributo intentos.
+	 * @param i Entero con el nuevo valor.
 	 */
 	public void setIntentos(int i) {	
 		intentos = i;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Metodo que devuelve el valor del atributo maximo.
+	 * @return Valor entero con su valor.
 	 */
 	public int getMaximo() {
 		return maximo;
 	}
 	
 	/**
-	 * 
-	 * @param max
+	 * Metodo modifica el valor del atributo maximo.
+	 * @param max Entero con el nuevo valor.
 	 */
 	private void setMaximo(int max) {
 		maximo = max;
 	}
 	
 	/**
-	 * 
+	 * Método para mostrar el contenido de los atributos de la clase Ahorcado.
+	 * @return Cadena con el formato de salida [] y el valor de los atributos intentos y maximo.
 	 */
 	public String toString() {
 		return "[ Intentos: "+intentos+", Maximos intentos: "+maximo+" ]";
 	}
 	
 	/**
-	 * 
-	 * @param a
-	 * @return
+	 * Metodo que compara los objetos con los del parametro de entrada.
+	 * @param a Objeto de la clase Ahorcado
+	 * @return Booleano con la comparacion de todos los atributos.
 	 */
 	public boolean equals(Ahorcado a) {
 		return seleccionada.equals(a.seleccionada) && intentos == a.intentos && maximo == a.maximo && contador == a.contador;
