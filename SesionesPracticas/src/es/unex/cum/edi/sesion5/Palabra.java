@@ -86,7 +86,7 @@ public class Palabra {
 	 * @return Cadena con el formato de salida [] y el valor de todos los atributos.
 	 */
 	public String toString() {
-		return "Palabra [Texto="+texto+", Pista="+pista+", Longitud="+longitud+"]";
+		return "Palabra [texto="+texto+", pista="+pista+", longitud="+longitud+"]";
 	}
 
 	/**
@@ -99,3 +99,4 @@ public class Palabra {
 	}
 	
 }
+
