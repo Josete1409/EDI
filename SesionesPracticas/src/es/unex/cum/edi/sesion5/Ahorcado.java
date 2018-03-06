@@ -133,7 +133,7 @@ public class Ahorcado {
 	 *         intentos y maximo.
 	 */
 	public String toString() {
-		return "[Seleccionada: Intentos: " + intentos + ", MaxIntentos: " + maximo + "]";
+		return "[Seleccionada: "+seleccionada.getTexto()+" Intentos: " + intentos + ", MaxIntentos: " + maximo + "]";
 	}
 
 	/**

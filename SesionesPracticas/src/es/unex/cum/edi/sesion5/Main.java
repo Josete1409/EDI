@@ -9,9 +9,25 @@ public class Main {
 
 		Ahorcado ah = new Ahorcado(5, 6); // Pasamos los dos parametros, el primero es fija el tamaño del array lista y
 											// el segundo el numero max de intentos.
+		Palabra[] p = new Palabra[50];
+		Main m = new Main();
 		Teclado t = new Teclado();
 		int opc = 0, selec = 0, num = 0, gen = 0, cont = 0;
-		String tex, pist;
+		String tex = " ", pist = " ";
+
+		m.rellenar(opc, t, p, tex, pist, num, gen, ah);
+
+		selec = t.leerEntero();
+
+		ah.setSeleccionada(ah.getLista()[selec]);
+		System.out.println(ah.toString());
+		
+		m.mostrar(ah, p, cont);
+
+	}
+
+	public void rellenar(int opc, Teclado t, Palabra[] p, String tex, String pist, int num, int gen, Ahorcado ah)
+			throws IOException {
 
 		for (int i = 0; i < ah.getLista().length; i++) {
 
@@ -22,47 +38,38 @@ public class Main {
 				opc = t.literalConEntero("Elige tu opcion: ");
 			}
 
+			tex = t.leerLinea();
+			pist = t.leerLinea();
+
 			switch (opc) {
 			case 1:
 
-				tex = t.leerLinea();
-				pist = t.leerLinea();
 				num = t.leerEntero();
 				while (num != 1 && num != 2) {
 					System.out.println("Valor introducido no valido, vuelva a intentarlo.");
 					num = t.leerEntero();
 				}
-				Sustantivo s = new Sustantivo(tex, pist, num);
-				ah.addLista(s);
-				System.out.println(s.toString());
+				p[i] = new Sustantivo(tex, pist, num);
 
 				break;
 			case 2:
 
-				tex = t.leerLinea();
-				pist = t.leerLinea();
 				num = t.leerEntero();
 				while (num != 1 && num != 2 && num != 3) {
 					System.out.println("Valor introducido no valido, vuelva a intentarlo.");
 					num = t.leerEntero();
 				}
-				Verbo v = new Verbo(tex, pist, num);
-				ah.addLista(v);
-				System.out.println(v.toString());
+				p[i] = new Verbo(tex, pist, num);
 
 				break;
 			case 3:
 
-				tex = t.leerLinea();
-				pist = t.leerLinea();
 				gen = t.leerEntero();
 				while (gen != 1 && gen != 2 && gen != 3) {
 					System.out.println("Valor introducido no valido, vuelva a intentarlo.");
 					gen = t.leerEntero();
 				}
-				Adjetivo a = new Adjetivo(tex, pist, gen);
-				ah.addLista(a);
-				System.out.println(a.toString());
+				p[i] = new Adjetivo(tex, pist, gen);
 
 				break;
 			default:
@@ -70,27 +77,35 @@ public class Main {
 				break;
 			}
 
+			ah.addLista(p[i]);
 		}
 
-		selec = t.leerEntero();
+	}
 
-		ah.setSeleccionada(ah.getLista()[selec]);
+	public void mostrar(Ahorcado ah, Palabra[] p, int cont) {
 
-		ah.getSeleccionada().toString();
+		System.out.println(ah.getSeleccionada().toString());
 
 		for (int i = 0; i < ah.getLista().length; i++) {
-			ah.getLista()[i].toString();
+			System.out.println(ah.getLista()[i].toString());
 			cont = cont + ah.getLista()[i].getLongitud();
 		}
 
 		System.out.println("Longitud Total: " + cont);
 
 		for (int i = 0; i < ah.getLista().length; i++) {
-			ah.getLista()[i].getClass().toString();
+
+			if (ah.getLista()[i].getClass().equals(Sustantivo.class)) {
+				Sustantivo s = (Sustantivo) p[i];
+				System.out.println("Sustantivo[Numero: "+s.getNumero()+"]");
+			} else if (ah.getLista()[i].getClass().equals(Verbo.class)) {
+				Verbo v = (Verbo) p[i];
+				System.out.println("Verbo[Conjugacion: "+v.getNumero()+"]");
+			} else {
+				Adjetivo a = (Adjetivo) p[i];
+				System.out.println("Adjetivo[Genero: "+a.getGenero()+"]");
+			}
 		}
 
-		ah.toString();
-
 	}
-
 }
