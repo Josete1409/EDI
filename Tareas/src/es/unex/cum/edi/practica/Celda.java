@@ -67,7 +67,6 @@ public class Celda {
 		this.estado = estado;
 	}
 
-	@Override
 	public String toString() {
 		return "Celda [fila=" + fila + ", columna=" + columna + ", imageReverso=" + imageReverso + ", imagenFrontal="
 				+ imagenFrontal + ", estado=" + estado + "]";
