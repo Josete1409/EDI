@@ -189,9 +189,9 @@ public class Ahorcado {
 	public boolean siGanado() {
 		
 		int i = 0;
-		boolean bandera = false;
+		boolean bandera = true;
 		
-		while(letras[i] == !bandera) {
+		while(letras[i] == bandera || i != seleccionada.getTexto().length()) {
 			i++;
 		}
 		

@@ -1,6 +1,8 @@
 package es.unex.cum.edi.practica;
 
-public abstract class TableroParejas extends Tablero {
+import java.util.Random;
+
+public class TableroParejas extends Tablero {
 
 	public TableroParejas() {
 		super();
@@ -11,34 +13,22 @@ public abstract class TableroParejas extends Tablero {
 		numColumnas = -1;
 	}
 
-	public void inicializar(Celda[][] tablero, int numFilas, int numColumnas) {
-
-		for (int i = 0; i < numFilas; i++) {
-
-			for (int j = 0; j < numColumnas; j++) {
-
-				
-
-			}
-		}
-
+	@Override
+	public void inicializar() {
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void repartir() {
+		// TODO Auto-generated method stub
 
 	}
 
-	public void mostrar(Celda[][] tablero, int numFilas, int numColumnas) {
-
-		for (int i = 0; i < numFilas; i++) {
-
-			for (int j = 0; j < numColumnas; j++) {
-
-				System.out.println();
-
-			}
-		}
-
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

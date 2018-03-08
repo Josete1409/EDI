@@ -10,8 +10,7 @@ public class Main {
 		Teclado t = new Teclado();
 		Ahorcado ah = new Ahorcado();
 		
-		int pos=t.literalConEntero("Dime posicion seleccionada");
-		ah.seleccionarPalabra(pos);
+		ah.seleccionarPalabra();
 		
 		
 		
