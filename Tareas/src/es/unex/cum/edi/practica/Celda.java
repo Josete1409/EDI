@@ -1,12 +1,12 @@
 package es.unex.cum.edi.practica;
 
-public class Celda {
+public abstract class Celda {
 
-	private int fila;
-	private int columna;
-	private String imageReverso;
-	private String imagenFrontal;
-	private int estado;
+	protected int fila;
+	protected int columna;
+	protected String imageReverso;
+	protected String imagenFrontal;
+	protected int estado;
 	
 	public Celda() {
 		fila = -1;

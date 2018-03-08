@@ -2,7 +2,7 @@ package es.unex.cum.edi.practica;
 
 public class CeldaRaya extends Celda {
 
-	private int color;
+	protected int color;
 	
 	public CeldaRaya() {
 		super();

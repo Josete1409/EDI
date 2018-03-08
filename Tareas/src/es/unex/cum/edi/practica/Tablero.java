@@ -2,10 +2,10 @@ package es.unex.cum.edi.practica;
 
 public class Tablero {
 	
-	private int numFilas;
-	private int numColumnas;
-	private int estado;
-	private Celda[][] tablero;
+	protected int numFilas;
+	protected int numColumnas;
+	protected int estado;
+	protected Celda[][] tablero;
 	
 	public Tablero() {
 		numFilas = -1;
@@ -16,6 +16,7 @@ public class Tablero {
 	public Tablero(int numFilas, int numColumnas) {
 		this.numFilas = numFilas;
 		this.numColumnas = numColumnas;
+		tablero = new Celda[numFilas][numColumnas];
 	}
 
 	public void inicializar() {
@@ -31,16 +32,14 @@ public class Tablero {
 	}
 	
 	public int getEstado(int numFilas, int numColumnas) {
-		return estado;
+		return tablero[numFilas][numColumnas].getEstado(); 
 	}
 	
 	public void setEstado(int numFilas, int numColumnas, int estado) {
-		this.numFilas = numFilas;
-		this.numColumnas = numColumnas;
-		this.estado = estado;
+		tablero[numFilas][numColumnas].setEstado(estado);
 	}
 	
 	public Celda[][] getCelda(int numFilas, int numColumnas) {
-		return tablero; 
+		return tablero[numFilas][numColumnas].; 
 	}
 }

@@ -2,7 +2,7 @@ package es.unex.cum.edi.practica;
 
 public class CeldaBingo extends Celda {
 
-	private int numero;
+	protected int numero;
 	
 	public CeldaBingo() {
 		super();

@@ -17,7 +17,7 @@ public abstract class TableroParejas extends Tablero {
 
 			for (int j = 0; j < numColumnas; j++) {
 
-				tablero[i][j] = new Celda();
+				
 
 			}
 		}

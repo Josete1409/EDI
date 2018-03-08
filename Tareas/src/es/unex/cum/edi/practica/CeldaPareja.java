@@ -2,7 +2,7 @@ package es.unex.cum.edi.practica;
 
 public class CeldaPareja extends Celda {
 
-	private int valor;
+	protected int valor;
 	
 	
 	public CeldaPareja() {
