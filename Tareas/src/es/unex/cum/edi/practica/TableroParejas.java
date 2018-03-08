@@ -1,7 +1,5 @@
 package es.unex.cum.edi.practica;
 
-import java.util.Random;
-
 public class TableroParejas extends Tablero {
 
 	public TableroParejas() {
