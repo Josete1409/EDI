@@ -4,13 +4,12 @@ public abstract class Tablero {
 
 	protected int numFilas;
 	protected int numColumnas;
-	protected int estado;
 	protected Celda[][] tablero;
 
 	public Tablero() {
-		numFilas = -1;
-		numColumnas = -1;
-		tablero = new Celda[49][49];
+		numFilas = 6;
+		numColumnas = 6;
+		tablero = new Celda[6][6];
 	}
 
 	public Tablero(int numFilas, int numColumnas) {

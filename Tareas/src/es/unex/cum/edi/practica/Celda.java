@@ -9,11 +9,11 @@ public abstract class Celda {
 	protected int estado;
 	
 	public Celda() {
-		fila = -1;
-		columna = -1;
+		fila = 0;
+		columna = 0;
 		imageReverso = new String();
 		imagenFrontal = new String();
-		estado = -1;
+		estado = 0;
 	}
 	
 	public Celda(int fila, int columna) {

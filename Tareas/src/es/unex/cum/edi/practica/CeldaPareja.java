@@ -2,7 +2,7 @@ package es.unex.cum.edi.practica;
 
 public class CeldaPareja extends Celda {
 
-	protected int valor;
+	protected int valor=-1;
 	
 	
 	public CeldaPareja() {
@@ -11,15 +11,15 @@ public class CeldaPareja extends Celda {
 	}
 	
 	public CeldaPareja(int fila, int columna) {
-		fila = -1;
-		columna = -1;
+		this.fila = fila;
+		this.columna = columna;
 	}
 	
 	public CeldaPareja(String imageReverso, String imagenFrontal, int estado, int valor) {
-		imageReverso = " ";
-		imagenFrontal = " ";
-		estado = -1;
-		valor = -1;
+		this.imageReverso = imageReverso;
+		this.imagenFrontal = imagenFrontal;
+		this.estado = estado;
+		this.valor = valor;
 	}
 
 	public int getValor() {
