@@ -13,6 +13,7 @@ public class MainS4 {
 		// TODO Auto-generated method stub
 
 		MainS4 m = new MainS4();
+		
 		m.inicializar();
 		m.rellenar();
 		m.listar();

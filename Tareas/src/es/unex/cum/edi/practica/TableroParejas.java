@@ -67,8 +67,13 @@ public class TableroParejas extends Tablero {
 			for (int j = 0; j < numColumnas; j++) {
 			
 				CeldaPareja cp = (CeldaPareja) tablero[i][j];
-				System.out.print(cp.getImageReverso()+" ");
-				
+				if(cp.getEstado() == 0) {
+					System.out.print(" "+cp.getImageReverso()+" ");
+				}else if(cp.getEstado() == 1){
+					System.out.print(" "+cp.getImagenFrontal()+" ");
+				}else {
+					System.out.print(" "+cp.getImagenFrontal()+" ");
+				}
 			}
 		}
 
