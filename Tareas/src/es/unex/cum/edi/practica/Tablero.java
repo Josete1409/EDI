@@ -7,9 +7,9 @@ public abstract class Tablero {
 	protected Celda[][] tablero;
 
 	public Tablero() {
-		numFilas = 6;
-		numColumnas = 6;
-		tablero = new Celda[6][6];
+		numFilas = 4;
+		numColumnas = 4;
+		tablero = new Celda[4][4];
 	}
 
 	public Tablero(int numFilas, int numColumnas) {

@@ -9,8 +9,7 @@ public class TableroParejas extends Tablero {
 	}
 
 	public TableroParejas(int numFilas, int numColumnas) {
-		numFilas = 6;
-		numColumnas = 6;
+		super(numFilas, numColumnas);
 	}
 
 	@Override
