@@ -45,7 +45,7 @@ public class TableroParejas extends Tablero {
 					cp.setValor(aleatorio);
 					cp.setEstado(0);
 					cp.setImageReverso(" # ");
-					cp.setImagenFrontal(Integer.toString(aleatorio));
+					cp.setImagenFrontal(" "+Integer.toString(aleatorio)+" ");
 
 					cont++;
 				}
