@@ -13,7 +13,7 @@ public class JuegoPareja {
 		Scanner sc = new Scanner(System.in);
 
 		j.jugar(sc);
-		j.verSiFin(sc);
+		j.verSiFin();
 
 	}
 
@@ -43,35 +43,27 @@ public class JuegoPareja {
 		t.repartir();
 		t.mostrar();
 
-		while (verSiFin(sc) == false) {
+		while (verSiFin() == false) {
 
 			System.out.println("");
 			System.out.println("");
 			System.out.println("Escribe una fila y una columna [(1-" + filas + "),(1-" + columnas + ")]:");
 			String f = sc.next();
 			String c = sc.next();
-			f1 = Integer.parseInt(f) - 1;
-			c1 = Integer.parseInt(c) - 1;
-			while (f1 < 0 || f1 > filas) {
+			f1 = Integer.parseInt(f);
+			c1 = Integer.parseInt(c);
+			while ((f1 < 0 || f1 > filas) || (c1 < 0 || c1 > columnas)) {
 				System.out.println("Datos no validos, vuelva a intentarlo.");
-				System.out.println("Escribe una fila y una columna [(1-" + filas + "),(1-" + columnas + ")]:");
 				f = sc.next();
+				f1 = Integer.parseInt(f);
 				c = sc.next();
-				f1 = Integer.parseInt(f) - 1;
-				c1 = Integer.parseInt(c) - 1;
+				c1 = Integer.parseInt(c);
 			}
-			while (c1 < 0 || c1 > columnas) {
-				System.out.println("Datos no validos, vuelva a intentarlo.");
-				System.out.println("Escribe una fila y una columna [(1-" + filas + "),(1-" + columnas + ")]:");
-				f = sc.next();
-				c = sc.next();
-				f1 = Integer.parseInt(f) - 1;
-				c1 = Integer.parseInt(c) - 1;
-			}
+			f1 = f1 - 1;
+			c1 = c1 - 1;
 			t.setEstado(f1, c1, 1);
 			String primera = t.tablero[f1][c1].getImagenFrontal();
 			t.mostrar();
-
 			
 			
 			System.out.println("");
@@ -79,34 +71,25 @@ public class JuegoPareja {
 			System.out.println("Escribe una fila y una columna [(1-" + filas + "),(1-" + columnas + ")]:");
 			f = sc.next();
 			c = sc.next();
-			f2 = Integer.parseInt(f) - 1;
-			c2 = Integer.parseInt(c) - 1;
-			while (f2 < 0 || f2 > filas) {
+			f2 = Integer.parseInt(f);
+			c2 = Integer.parseInt(c);
+			while ((f2 < 0 || f2 > filas) || (c2 < 0 || c2 > columnas)) {
 				System.out.println("Datos no validos, vuelva a intentarlo.");
-				System.out.println("Escribe una fila y una columna [(1-" + filas + "),(1-" + columnas + ")]:");
 				f = sc.next();
+				f2 = Integer.parseInt(f);
 				c = sc.next();
-				f2 = Integer.parseInt(f) - 1;
-				c2 = Integer.parseInt(c) - 1;
+				c2 = Integer.parseInt(c);
 			}
-			while (c2 < 0 || c2 > columnas) {
-				System.out.println("Datos no validos, vuelva a intentarlo.");
-				System.out.println("Escribe una fila y una columna [(1-" + filas + "),(1-" + columnas + ")]:");
-				f = sc.next();
-				c = sc.next();
-				f2 = Integer.parseInt(f) - 1;
-				c2 = Integer.parseInt(c) - 1;
-			}
+			f2 = f2 - 1;
+			c2 = c2 - 1;
 			t.setEstado(f2, c2, 1);
 			String segunda = t.tablero[f2][c2].getImagenFrontal();
 			t.mostrar();
 
 			
-			
 			resolver(primera, segunda, f1, f2, c1, c2, t);
-			
-			
-			if (verSiFin(sc) == true) {
+
+			if (verSiFin() == true) {
 				System.out.println("");
 				System.out.println("");
 				System.out.println("¡¡HAS GANADO!!");
@@ -115,8 +98,7 @@ public class JuegoPareja {
 				System.out.println("");
 				t.mostrar();
 			}
-			
-			
+
 		}
 
 	}
@@ -134,7 +116,7 @@ public class JuegoPareja {
 
 	}
 
-	private boolean verSiFin(Scanner sc) {
+	private boolean verSiFin() {
 		// TODO Auto-generated method stub
 
 		int cont = 0;
@@ -153,7 +135,7 @@ public class JuegoPareja {
 
 		if (cont == (t.numColumnas * t.numFilas)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
