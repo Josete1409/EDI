@@ -11,9 +11,19 @@ public class JuegoPareja {
 
 		JuegoPareja j = new JuegoPareja();
 		Scanner sc = new Scanner(System.in);
+		
+		String resp = "S";
+		while (resp.equals("S")) {
+			
+			j.jugar(sc);
+			j.verSiFin();
 
-		j.jugar(sc);
-		j.verSiFin();
+			System.out.println("");
+			System.out.println("¿Quieres jugar de nuevo? (S/N)");
+			resp = sc.next();
+			resp = resp.toUpperCase();
+
+		}
 
 	}
 
@@ -64,8 +74,7 @@ public class JuegoPareja {
 			t.setEstado(f1, c1, 1);
 			String primera = t.tablero[f1][c1].getImagenFrontal();
 			t.mostrar();
-			
-			
+
 			System.out.println("");
 			System.out.println("");
 			System.out.println("Escribe una fila y una columna [(1-" + filas + "),(1-" + columnas + ")]:");
@@ -86,7 +95,6 @@ public class JuegoPareja {
 			String segunda = t.tablero[f2][c2].getImagenFrontal();
 			t.mostrar();
 
-			
 			resolver(primera, segunda, f1, f2, c1, c2, t);
 
 			if (verSiFin() == true) {
