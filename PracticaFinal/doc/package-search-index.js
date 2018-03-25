@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"es.unex.cum.edi.practica.juego"},{"l":"es.unex.cum.edi.practica.juego.celda"},{"l":"es.unex.cum.edi.practica.juego.tablero"}]
