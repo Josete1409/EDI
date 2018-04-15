@@ -6,15 +6,26 @@ public class Contact {
 
 	private String identificador;
 	private Vector<Mensaje> v;
+	private String name;
 	
 	public Contact() {
 		identificador = new String();
+		name = new String();
 		v = new Vector<Mensaje>();
 	}
 	
-	public Contact(String identificador) {
+	public Contact(String identificador, String name) {
 		this.identificador = identificador;
+		this.name = name;
 		this.v = new Vector<Mensaje>();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getIdentificador() {
@@ -35,12 +46,12 @@ public class Contact {
 	
 	@Override
 	public String toString() {
-		return "Contact [identificador=" + identificador + ", v=" + v + "]";
+		return "Contact [identificador=" + identificador + ", name=" + name +", v=" + v + "]";
 	}
 
 	public boolean equals(Object o) {
 		Contact c = (Contact) o;
-		return (this.identificador.equals(c.identificador) && this.v.equals(c.v));
+		return (this.identificador.equals(c.identificador) && this.name.equals(c.name) && this.v.equals(c.v));
 	}
 	
 }
