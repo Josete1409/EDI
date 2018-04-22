@@ -20,7 +20,7 @@ public class Contact {
 	
 	public Contact(String n, String na) {
 		id= n;
-		name=n;
+		name=na;
 		v=new Vector<Message>();
 	}
 	
@@ -47,8 +47,5 @@ public class Contact {
 		// TODO Auto-generated method stub
 		return name;
 	}
-
-
-
 
 }
