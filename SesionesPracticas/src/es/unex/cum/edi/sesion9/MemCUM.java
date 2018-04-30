@@ -76,7 +76,6 @@ public class MemCUM {
 	 * aÃ±adir
 	 * 
 	 * @throws IOException
-	 *             Usuario u = null; Iterator it = u.
 	 * 
 	 */
 	private void registrer() throws IOException {
@@ -104,6 +103,7 @@ public class MemCUM {
 				System.out.println("Anadido");
 			}
 		}
+
 	}
 
 	/*
@@ -113,30 +113,29 @@ public class MemCUM {
 	 */
 	private Usuario signIn() throws IOException {
 		// TODO Auto-generated method stub
-		
+
 		boolean estado = false;
 		String id = leer.literalConString("Introduce el id: ");
 		String pass = leer.literalConString("Introduce una contraseña: ");
 
 		if (lista.isEmpty()) {
 			System.out.println("Error");
-		}else {	
+		} else {
 			Iterator it = lista.iterator();
-			while (it.hasNext()) {
+			while (it.hasNext() && estado == false) {
 				Usuario u = (Usuario) it.next();
 				if (u.getId().equals(id) && u.getPassword().equals(pass)) {
+					System.out.println("Registrado");
 					estado = true;
 					return u;
 				}
 			}
-			if(estado == true) {
-				System.out.println("Registrado");
-			}else {
+			if (estado == false) {
 				System.out.println("Error");
 			}
 		}
-		
 		return null;
+
 	}
 
 	/**
@@ -155,25 +154,20 @@ public class MemCUM {
 		String id = leer.literalConString("Introduce el id del contacto: ");
 
 		Iterator it = lista.iterator();
-		if (lista.isEmpty()) {
-			System.out.println("Error");
-		} else {
-			
-			while (it.hasNext()) {
-				Usuario u = (Usuario) it.next();
-				if (u.getId().equals(id)) {
-					Contact c = new Contact(id, u.getName());
-					currentUser.addContact(c);
-					System.out.println("Anadido");
-					u.addQueue(u.getContactId(id)); // Añadimos a la cola del usuario buscado la peticion del contacto
-					estado = true;
-					break;
-				}
-			}
 
-			if (estado == false) {
-				System.out.println("Error");
+		while (it.hasNext() && !estado) {
+			Usuario u = (Usuario) it.next();
+			if (u.getId().equals(id)) {
+				Contact c = new Contact(id, u.getName());
+				currentUser.addContact(c);
+				u.addQueue(new Contact(currentUser.getId(), currentUser.getName()));
+				System.out.println("Anadido");
+				estado = true;
 			}
+		}
+
+		if (estado == false) {
+			System.out.println("Error");
 		}
 
 	}
@@ -188,14 +182,15 @@ public class MemCUM {
 	private void showRequestContact(Usuario currentUser) {
 		// TODO Auto-generated method stub
 
-		Iterator it = currentUser.getQueue().iterator();
-
 		if (currentUser.getQueue().isEmpty()) {
 			System.out.println("No hay contactos");
 		} else {
-			while (it.hasNext()) {
-				Usuario u = (Usuario) it.next();
-				System.out.println("[Contact: "+u.getContactName(currentUser.getName())+"]");
+			// mientras no esta vacia
+			// poll()
+			while (!currentUser.getQueue().isEmpty()) {
+				Contact c = (Contact) currentUser.getQueue().poll();
+				System.out.println("[Contact: " + c.getName() + "]");
+				currentUser.addContact(c);
 			}
 		}
 	}
@@ -205,24 +200,17 @@ public class MemCUM {
 	 * muestra el nombre y sino se muestra "Error"
 	 * 
 	 * @param currentUser
-	 * @throws IOException
 	 */
 	private void getContact(Usuario currentUser) throws IOException {
 		// TODO Auto-generated method stub
 
 		String id = leer.literalConString("Introduce el id del contacto: ");
 
-		Iterator it = currentUser.getV().iterator();
-		if (currentUser.getV().isEmpty()) {
+		Contact c = currentUser.getContactId(id);
+		if (c == null) {
 			System.out.println("Error");
 		} else {
-			while (it.hasNext()) {
-				Contact c = (Contact) it.next();
-				if(c.getId().equals(id)) {
-					System.out.println(c.getName());
-				}
-				break;
-			}
+			System.out.println(c.getName());
 		}
 
 	}
@@ -236,20 +224,41 @@ public class MemCUM {
 	private void showAllMessageContact(Usuario currentUser) throws IOException {
 		// TODO Auto-generated method stub
 
-		String id = leer.literalConString("Introduce el id del contacto: ");
-		
-		Iterator it = currentUser.getV().iterator();
-		
-		
+		String id = leer.literalConString("Introduce el id: ");
+
+		Contact c = currentUser.getContactId(id);
+
+		if (c == null) {
+			System.out.println("Error");
+		} else {
+			if (c.getVector().isEmpty()) {
+				System.out.println("No hay mensajes");
+			} else {
+				for (int i = 0; i < c.getVector().size(); i++) {
+					MessageText mt = (MessageText) c.getVector().get(i);
+					System.out.println(mt.toString());
+				}
+			}
+		}
+
 	}
 
 	// AÃ±ade un mensaje de tipo texto (text) para el contacto leido (id). Si todo
 	// funciona correctamente mostrar el mensaje "Anadido" en caso contrario "Error"
-	private void addMessageContact(Usuario currentUser) {
+	private void addMessageContact(Usuario currentUser) throws IOException {
 		// TODO Auto-generated method stub
 
-		
-		
+		String id = leer.literalConString("Introduce el id del contacto: ");
+		MessageText mt = new MessageText();
+
+		if (currentUser.getContactId(id) == null) {
+			System.out.println("Error");
+		} else {
+			String m = leer.literalConString("Escribe el mensaje: ");
+			mt.setText(m);
+			currentUser.getContactId(id).addMessage(mt);
+			System.out.println("Anadido");
+		}
 	}
 
 	/**
@@ -275,20 +284,28 @@ public class MemCUM {
 	/**
 	 * Dado un identificador de contacto, muestra el Ãºltimo mensaje intercambiado
 	 * con el usuario actual. * @param currentUser
-	 * @throws IOException 
 	 */
 	private void getLastMessageContact(Usuario currentUser) throws IOException {
 		// TODO Auto-generated method stub
 
-		String id = leer.literalConString("Introduce el id del contacto: ");
-		
-		Iterator it = lista.iterator();
-		while(it.hasNext()) {
-			Usuario u = (Usuario) it.next();
-			if(u.getId().equals(id)) {
-				
+    String id = leer.literalConString("Introduce el id: ");
+
+		Contact c = currentUser.getContactId(id);
+
+		if (c == null) {
+			System.out.println("Error");
+		} else {
+			if (c.getVector().isEmpty()) {
+				System.out.println("No hay mensajes");
+			} else {
+
+				MessageText mt = (MessageText) c.getVector().get(c.getVector().size()-1);
+				System.out.println(mt.toString());
+
 			}
 		}
+
+
 	}
 
 }

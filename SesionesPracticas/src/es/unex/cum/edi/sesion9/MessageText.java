@@ -24,4 +24,8 @@ public class MessageText extends Message{
 		this.text = "";
 	}
 	
+	public String toString() {
+		return ("Mensaje: "+text);
+	}
+	
 }

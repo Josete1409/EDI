@@ -79,7 +79,7 @@ public class Usuario {
 	public Contact getContactId(String id) {
 		Contact c = null;
 		Iterator it = v.iterator();
-		while (it.hasNext() & (c != null)) {
+		while (it.hasNext()) {
 			Contact y = (Contact) it.next();
 			if (y.getId().equals(id))
 				c = y;
@@ -90,7 +90,7 @@ public class Usuario {
 	public Contact getContactName(String name) {
 		Contact c = null;
 		Iterator it = v.iterator();
-		while (it.hasNext() & (c != null)) {
+		while (it.hasNext()) {
 			Contact y = (Contact) it.next();
 			if (y.getName().equals(id))
 				c = y;
