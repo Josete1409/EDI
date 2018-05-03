@@ -21,6 +21,11 @@ public class Jugador extends Persona implements Serializable {
 	public void addJugada(Jugada j) {
 		lista.add(j);
 	}
+
+	@Override
+	public String toString() {
+		return "Jugador [lista=" + lista + "]";
+	}
 	
 	
 }

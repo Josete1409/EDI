@@ -1,5 +1,8 @@
 package es.unex.cum.edi.practica.juego.celda;
 
+import java.util.Queue;
+
+
 /**
  * Clase CeldaPareja que hereda de la clase Celda. Esta formada por la fila, la columna, la imageReverso, la imagenFrontal, el estado y el valor.
  * En primer lugar se debe llamar a un constructor y a continuacion llamar a los distintos métodos. 
@@ -44,7 +47,7 @@ public class CeldaPareja extends Celda {
 		this.estado = estado;
 		this.valor = valor;
 	}
-
+	
 	/**
 	 *  Metodo que devuelve el valor de la celda.
 	 * @return Numero entero que indica el valor de la celda.

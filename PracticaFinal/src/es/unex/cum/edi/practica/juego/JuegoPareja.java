@@ -21,11 +21,11 @@ public class JuegoPareja {
 	Tablero t;
 	private Queue<CeldaPareja> mov;
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		JuegoPareja j = new JuegoPareja();
-		Scanner sc = new Scanner(System.in);
+		/*Scanner sc = new Scanner(System.in);
 
 		String resp = "S";
 		while (resp.equals("S")) {
@@ -40,8 +40,8 @@ public class JuegoPareja {
 
 		}
 
-	}
-
+	}*/
+	
 	/**
 	 * Método que se encarga de pedir una fila y una columna para descubrir una
 	 * celda y pedir seguidamente otra fila y columna para descubrir la segunda
@@ -54,7 +54,7 @@ public class JuegoPareja {
 	 * 
 	 * @param sc
 	 */
-	private void jugar(Scanner sc) {
+	public void jugar(Scanner sc) {
 		// TODO Auto-generated method stub
 
 		int f1, f2, c1, c2, filas, columnas;
@@ -100,6 +100,8 @@ public class JuegoPareja {
 			c1 = c1 - 1;
 			t.setEstado(f1, c1, 1);
 			String primera = t.tablero[f1][c1].getImagenFrontal();
+			CeldaPareja cp1 = new CeldaPareja(f1,c1);
+			mov.add(cp1);
 			t.mostrar();
 
 			System.out.println("");
@@ -120,6 +122,8 @@ public class JuegoPareja {
 			c2 = c2 - 1;
 			t.setEstado(f2, c2, 1);
 			String segunda = t.tablero[f2][c2].getImagenFrontal();
+			CeldaPareja cp2 = new CeldaPareja(f2,c2);
+			mov.add(cp2);
 			t.mostrar();
 
 			resolver(primera, segunda, f1, f2, c1, c2, t);
@@ -160,7 +164,7 @@ public class JuegoPareja {
 	 * @param t
 	 *            - Objeto t de la clase Tablero para poder modificar su estado.
 	 */
-	private void resolver(String primera, String segunda, int f1, int f2, int c1, int c2, Tablero t) {
+	public void resolver(String primera, String segunda, int f1, int f2, int c1, int c2, Tablero t) {
 		// TODO Auto-generated method stub
 
 		if (primera.equals(segunda)) {
@@ -181,7 +185,7 @@ public class JuegoPareja {
 	 * @return - Si ha finalizado el juego o no, dependiendo del estado de todas las
 	 *         celdas del tablero.
 	 */
-	private boolean verSiFin() {
+	public boolean verSiFin() {
 		// TODO Auto-generated method stub
 
 		int cont = 0;
