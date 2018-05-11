@@ -5,6 +5,10 @@ public class Invitado extends Persona{
 	public Invitado() {
 		super();
 	}
+	
+	public Invitado(String id, String nombre) {
+		super(id, nombre);
+	}
 
 	@Override
 	public String toString() {

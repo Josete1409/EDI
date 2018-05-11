@@ -1,5 +1,6 @@
 package es.unex.cum.edi.practica.juego;
 
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
@@ -8,8 +9,8 @@ import es.unex.cum.edi.practica.juego.tablero.Tablero;
 import es.unex.cum.edi.practica.juego.tablero.TableroParejas;
 
 /**
- * Clase JuegoPareja. Esta formada por el main, el método jugar(), el método
- * resolver() y el método verSiFin(). Contiene un objeto de la clase
+ * Clase JuegoPareja. Esta formada por el main, el mï¿½todo jugar(), el mï¿½todo
+ * resolver() y el mï¿½todo verSiFin(). Contiene un objeto de la clase
  * TableroParejas.
  * 
  * @author Jose Anotnio Alvarez
@@ -20,6 +21,11 @@ public class JuegoPareja {
 
 	Tablero t;
 	private Queue<CeldaPareja> mov;
+	
+	public JuegoPareja() {
+		this.t = new TableroParejas();
+		this.mov = new LinkedList<CeldaPareja>();
+	}
 
 	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -34,7 +40,7 @@ public class JuegoPareja {
 			j.verSiFin();
 
 			System.out.println("");
-			System.out.println("¿Quieres jugar de nuevo? (S/N)");
+			System.out.println("ï¿½Quieres jugar de nuevo? (S/N)");
 			resp = sc.next();
 			resp = resp.toUpperCase();
 
@@ -43,14 +49,14 @@ public class JuegoPareja {
 	}*/
 	
 	/**
-	 * Método que se encarga de pedir una fila y una columna para descubrir una
+	 * Mï¿½todo que se encarga de pedir una fila y una columna para descubrir una
 	 * celda y pedir seguidamente otra fila y columna para descubrir la segunda
-	 * celda. Cambian su estado 1-mostrada y llama al los métodos resolver() y
-	 * verSiFin(). Con el objeto t de la clase Tablero, llamaremos a los métodos
+	 * celda. Cambian su estado 1-mostrada y llama al los mï¿½todos resolver() y
+	 * verSiFin(). Con el objeto t de la clase Tablero, llamaremos a los mï¿½todos
 	 * abstractos para inicializar las celdas del tablero, mostrar el tablero y
 	 * repartir el valor de imagenFrontal en las distintas celdas. Inicializaremos
-	 * el tablero según el numero de filas y columnas que decida el usuario, siempre
-	 * y cuando su multiplicación sea par.
+	 * el tablero segï¿½n el numero de filas y columnas que decida el usuario, siempre
+	 * y cuando su multiplicaciï¿½n sea par.
 	 * 
 	 * @param sc
 	 */
@@ -101,7 +107,7 @@ public class JuegoPareja {
 			t.setEstado(f1, c1, 1);
 			String primera = t.tablero[f1][c1].getImagenFrontal();
 			CeldaPareja cp1 = new CeldaPareja(f1,c1);
-			mov.add(cp1);
+			mov.offer(cp1);
 			t.mostrar();
 
 			System.out.println("");
@@ -123,7 +129,7 @@ public class JuegoPareja {
 			t.setEstado(f2, c2, 1);
 			String segunda = t.tablero[f2][c2].getImagenFrontal();
 			CeldaPareja cp2 = new CeldaPareja(f2,c2);
-			mov.add(cp2);
+			mov.offer(cp2);
 			t.mostrar();
 
 			resolver(primera, segunda, f1, f2, c1, c2, t);
@@ -131,7 +137,7 @@ public class JuegoPareja {
 			if (verSiFin() == true) {
 				System.out.println("");
 				System.out.println("");
-				System.out.println("¡¡HAS GANADO!!");
+				System.out.println("ï¿½ï¿½HAS GANADO!!");
 			} else {
 				System.out.println("");
 				System.out.println("");
@@ -143,7 +149,7 @@ public class JuegoPareja {
 	}
 
 	/**
-	 * Método que se encarga de comprobar el contenido de imagenFrontal si es igual
+	 * Mï¿½todo que se encarga de comprobar el contenido de imagenFrontal si es igual
 	 * o no, y segun sea modifica su estado a 0-no mostrada(distinto) o 2-mostrada y
 	 * emparejada(iguales).
 	 * 
@@ -178,9 +184,9 @@ public class JuegoPareja {
 	}
 
 	/**
-	 * Método que comprueba si el estado de todas las celdas del tablero es igual a
+	 * Mï¿½todo que comprueba si el estado de todas las celdas del tablero es igual a
 	 * 2 (todas emparejadas), si esto es asi devuelve true. De lo contrario retorna
-	 * false, y por lo tanto seguiría el juego hasta que se devuelva true.
+	 * false, y por lo tanto seguirï¿½a el juego hasta que se devuelva true.
 	 * 
 	 * @return - Si ha finalizado el juego o no, dependiendo del estado de todas las
 	 *         celdas del tablero.
