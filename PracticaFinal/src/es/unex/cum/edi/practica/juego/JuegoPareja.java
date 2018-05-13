@@ -8,10 +8,10 @@ import es.unex.cum.edi.practica.juego.celda.CeldaPareja;
 import es.unex.cum.edi.practica.juego.tablero.Tablero;
 import es.unex.cum.edi.practica.juego.tablero.TableroParejas;
 
+
 /**
- * Clase JuegoPareja. Esta formada por el main, el mï¿½todo jugar(), el mï¿½todo
- * resolver() y el mï¿½todo verSiFin(). Contiene un objeto de la clase
- * TableroParejas.
+ * Clase JuegoPareja. Esta formada un tablero, y una cola que almacena los movimientos de las celdas de cada juego.
+ * En primer lugar se debe llamar a un constructor y a continuacion llamar a los distintos métodos. 
  * 
  * @author Jose Anotnio Alvarez
  * @version 1
@@ -22,31 +22,21 @@ public class JuegoPareja {
 	Tablero t;
 	private Queue<CeldaPareja> mov;
 	
+	/**
+	 * Constructor por defecto de la clase JuegoPareja.
+	 */
 	public JuegoPareja() {
 		this.t = new TableroParejas();
 		this.mov = new LinkedList<CeldaPareja>();
 	}
-
-	/*public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		JuegoPareja j = new JuegoPareja();
-		/*Scanner sc = new Scanner(System.in);
-
-		String resp = "S";
-		while (resp.equals("S")) {
-
-			j.jugar(sc);
-			j.verSiFin();
-
-			System.out.println("");
-			System.out.println("ï¿½Quieres jugar de nuevo? (S/N)");
-			resp = sc.next();
-			resp = resp.toUpperCase();
-
-		}
-
-	}*/
+	
+	/**
+	 * Metodo que devuelve la cola de movimientos.
+	 * @return - Cola de movimientos.
+	 */
+	public Queue<CeldaPareja> getQueue() {
+		return mov;
+	}
 	
 	/**
 	 * Mï¿½todo que se encarga de pedir una fila y una columna para descubrir una
@@ -56,7 +46,7 @@ public class JuegoPareja {
 	 * abstractos para inicializar las celdas del tablero, mostrar el tablero y
 	 * repartir el valor de imagenFrontal en las distintas celdas. Inicializaremos
 	 * el tablero segï¿½n el numero de filas y columnas que decida el usuario, siempre
-	 * y cuando su multiplicaciï¿½n sea par.
+	 * y cuando su multiplicaciï¿½n sea par. Añade a la cola los movimientos que ha realizado el jugador.
 	 * 
 	 * @param sc
 	 */
@@ -137,7 +127,7 @@ public class JuegoPareja {
 			if (verSiFin() == true) {
 				System.out.println("");
 				System.out.println("");
-				System.out.println("ï¿½ï¿½HAS GANADO!!");
+				System.out.println("!!HAS GANADO!!");
 			} else {
 				System.out.println("");
 				System.out.println("");
